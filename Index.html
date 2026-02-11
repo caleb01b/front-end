@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Formulário</title>
+</head>
+<body>
+    <h1>Bom Dia, esse é o primeiro código de HTML</h1>
 
+    <form method="POST" action="index.php">
+        <fieldset>
+            <legend>Primeiro formulário</legend>
+            <br>
+            
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Usuário" minlength="5" maxlength="10" required>
+            
+            <br><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Senha" minlength="5" maxlength="10" required>
+        </fieldset>
+    </form>
+</body>
+</html>

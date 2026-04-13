@@ -1,121 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            width: 1500px;
-            height: 700px;
-        }
-        
-        header {
-            background: #22C1C3;
-            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
-            width: 100%;
-            height: 10%;
-        }
-        
-        h1 {
-            color: rgb(121, 5, 236);
-            font-family: arial;
-            font-size: 100%;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        h5 {
-            color: rgb(168, 8, 29);
-            font-family: arial;
-            font-size: 60%;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        main {
-            background-color: purple;
-            width: 100%;
-            height: 80%;
-        }
-        
-        footer {
-            background-color: rgb(17, 128, 0);
-            width: 100%;
-            height: 10%;
-        }
-        
-        .fotoHome {
-            background-image: url("https://www.ohmygoodness.com/reserved/cards/202004100603170.barber.gif");
-            background-repeat: no-repeat;
-            background-position: left;
-            background-size: cover;
-            width: 20px;
-            height: 20px;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Barbearia</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(180deg, #f6f3ee 0%, #efe8df 100%);
+    color: #222;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    position: relative;
+    background: linear-gradient(90deg, #0f1724 0%, #1b2a3a 100%);
+    width: 100%;
+    padding: 18px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 6px solid #b83b2f;
+    overflow: visible;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    left: -10%;
+    top: 0;
+    width: 120%;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, #ffffff 0 12px, #b83b2f 12px 24px, #0b6fb0 24px 36px);
+    opacity: 0.95;
+    transform: translateY(-6px);
+  }
+
+  header h1, header h5 { margin: 0; padding: 0; }
+  h1 {
+    color: #fff;
+    font-family: "Georgia", serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  }
+  h5 {
+    color: #ffd9c7;
+    font-family: "Georgia", serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 6px;
+    opacity: 0.95;
+  }
+
+  /* Nav */
+  header ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin-top: 12px;
+    padding: 0;
+    align-items: center;
+  }
+  header ul li { position: relative; }
+  header ul li a {
+    color: #f3f3f3;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.03);
+    transition: background 0.18s, transform 0.12s;
+    font-size: 0.95rem;
+    display: inline-block;
+  }
+  header ul li a:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-3px);
+    color: #fff;
+  }
+
+  /* Submenu: oculto por padrão, aparece no hover */
+  header ul li ul {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    list-style: none;
+    padding-left: 0;
+    color: #f0e9e6;
+    font-size: 0.9rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    min-width: 180px;
+    z-index: 50;
+  }
+  header ul li:hover > ul { display: block; }
+
+  header ul li ul li {
+    padding: 6px 0;
+    color: #f7efe9;
+  }
+
+  main {
+    background: linear-gradient(180deg, #2b1b17 0%, #241613 100%);
+    width: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px;
+  }
+
+  .conteudo {
+    text-align: center;
+    color: #fff;
+    padding: 28px 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.12));
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    max-width: 900px;
+    width: 100%;
+    margin-right: 18px;
+  }
+  .conteudo h1 {
+    font-family: "Georgia", serif;
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffd9c7;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  }
+  .conteudo p {
+    color: #f0d9c9;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+
+  .fotoHome {
+    background-image: url("https://www.ohmygoodness.com/reserved/cards/202004100603170.barber.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    border: 6px solid rgba(255,255,255,0.06);
+    box-shadow: 0 12px 30px rgba(184,59,47,0.18), inset 0 2px 6px rgba(255,255,255,0.02);
+    margin-left: 12px;
+    align-self: center;
+  }
+
+  footer {
+    background-color: #0b3d91;
+    width: 100%;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    border-top: 6px solid #b83b2f;
+  }
+
+  @media (max-width: 1200px) {
+    .conteudo h1 { font-size: 1.8rem; }
+    .fotoHome { width: 110px; height: 110px; }
+  }
+  @media (max-width: 800px) {
+    header { padding: 14px; }
+    header ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    main { padding: 18px; flex-direction: column; align-items: stretch; }
+    .conteudo { margin: 0 0 18px 0; }
+    .fotoHome { margin: 0 auto; }
+    header ul li ul { position: static; top: auto; left: auto; min-width: auto; }
+  }
+</style>
 </head>
-
 <body>
-    <header>
-        <h1>BARBEARIA DO 2°A</h1>
-        <h5>Te deixando bonitinho desde 1974</h5>
+  <header>
+    <h1>BARBEARIA DO 2°A</h1>
+    <h5>Te deixando bonitinho desde 1974</h5>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Serviços</a>
         <ul>
-            <li>
-                <a href="">Home</a>
-            </li>
-            <li>
-                <a href="">Serviços</a>
-                <ul>
-                    <li>Corte Maculino
-                        <ul>
-                            <li>
-                                Cabelo
-                            </li>
-                            <li>
-                                Barba
-                            </li>
-                            <li>
-                                Sombracelha
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Corte Feminino
-                        <ul>
-                            <li>
-                                Corte
-                            </li>
-                            <li>
-                                Hidratação
-                            </li>
-                            <li>
-                                Pintura
-                            </li>
-                            <li>
-                                Sombracelha
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="">Contato</a>
-            </li>
-            <li>
-                <a href="">Login</a>
-            </li>
+          <li>
+            Corte Masculino
+            <ul>
+              <li>Cabelo</li>
+              <li>Barba</li>
+              <li>Sobrancelha</li>
+            </ul>
+          </li>
+          <li>
+            Corte Feminino
+            <ul>
+              <li>Corte</li>
+              <li>Hidratação</li>
+              <li>Pintura</li>
+              <li>Sobrancelha</li>
+            </ul>
+          </li>
         </ul>
-    </header>
-    <main>
-        <div class="conteudo">
-            <h1>BARBEARIA DO 2ºA</h1>
-        </div>
-        <div class="fotoHome"></div>
-    </main>
-    <footer>
+      </li>
+      <li><a href="#">Contato</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+  </header>
 
-    </footer>
+  <main>
+    <div class="conteudo">
+      <h1>BARBEARIA DO 2ºA</h1>
+      <p>Tradição e estilo em cada corte. Ambiente acolhedor, profissionais experientes e atendimento com personalidade.</p>
+    </div>
+    <div class="fotoHome" aria-hidden="true"></div>
+  </main>
+
+  <footer></footer>
 </body>
-
 </html>
